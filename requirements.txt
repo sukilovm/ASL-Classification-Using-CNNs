@@ -41,6 +41,7 @@ Markdown==3.3.3
 MarkupSafe==1.1.1
 matplotlib==3.3.3
 mistune==0.8.4
+mplcursors==0.4
 nbclient==0.5.1
 nbconvert==6.0.7
 nbformat==5.0.8
@@ -81,6 +82,7 @@ scipy==1.5.4
 seaborn==0.11.1
 Send2Trash==1.5.0
 six==1.15.0
+sns==0.1
 tensorboard==2.4.0
 tensorboard-plugin-wit==1.7.0
 tensorflow==2.4.0
