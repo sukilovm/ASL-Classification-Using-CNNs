@@ -7,12 +7,23 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import LabelBinarizer
 
 
-def create_csv_from_image_data(directory_path, csv_name):
-    for dir_path, dir_names, filenames in os.walk(directory_path):
+def create_csv_from_image_data(path, name):
+    """Converts image data into csv file format.
+
+    Expects the images to be called [a-z].file-extension.
+
+    Parameters
+    ----------
+    path : Union[AnyStr, PathLike[AnyStr]]
+        Path to directory containing images.
+    name : Union[str, bytes, PathLike[str], PathLike[bytes], int]
+        Name of .csv output file.
+    """
+    for dir_path, dir_names, filenames in os.walk(path):
         first_row = ['label']
         for pixel_nr in range(1, 28 * 28 + 1):
             first_row.append('pixel{}'.format(str(pixel_nr)))
-        with open(csv_name, 'a') as file:
+        with open(name, 'a') as file:
             writer = csv.writer(file)
             writer.writerow(first_row)
         for filename in filenames:
@@ -24,15 +35,16 @@ def create_csv_from_image_data(directory_path, csv_name):
                 .reshape((28, 28)) \
                 .flatten()
             value = np.insert(value, 0, (ord(filename[0]) - ord('a')))
-            with open(csv_name, 'a') as file:
+            with open(name, 'a') as file:
                 writer = csv.writer(file)
                 writer.writerow(value)
 
 
 if __name__ == '__main__':
-    create_csv_from_image_data('../imgs/mariia', 'sign_mnist_test_mariia.csv')
+    create_csv_from_image_data('../../imgs/mariia',
+                               'sign_mnist_test_mariia.csv')
 
-    csv_file = pd.read_csv('../dataset/sign_mnist_test_mariia.csv')
+    csv_file = pd.read_csv('../../dataset/sign_mnist_test_mariia.csv')
 
     labels = csv_file['label']
     label_binarizer = LabelBinarizer()
