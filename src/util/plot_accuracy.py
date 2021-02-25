@@ -1,13 +1,15 @@
 import matplotlib.pyplot as plt
 
 
-def plot_accuracy(history, save_figure=False, draw_white=False):
+def plot_accuracy(history, title, save_figure=False, draw_white=False):
     """Plots training and testing accuracy.
 
     Parameters
     ----------
     history : History
         History object returned by model.fit.
+    title : Any
+        Title of the plot
     save_figure : bool
         Whether or not to save figure.
     draw_white : bool
@@ -16,7 +18,7 @@ def plot_accuracy(history, save_figure=False, draw_white=False):
     figure = plt.figure(figsize=(15, 5))
 
     # save property handler
-    title_obj = plt.title('Training & Validation Accuracy')
+    title_obj = plt.title(title)
 
     if draw_white:
         params = {"ytick.color": "w",

@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.metrics import confusion_matrix
 
 
-def plot_confusion_matrix(y_true, y_pred, labels):
+def plot_confusion_matrix(y_true, y_pred, labels, save_figure=False):
     """Plots confusion matrix.
 
     Parameters
@@ -16,7 +16,7 @@ def plot_confusion_matrix(y_true, y_pred, labels):
         xtick and ytick labels
     """
     confusion_mtx = confusion_matrix(y_true, y_pred, normalize=None)
-    _, ax = plt.subplots(figsize=(15, 15))
+    figure, ax = plt.subplots(figsize=(15, 15))
     sns.heatmap(data=confusion_mtx,
                 annot=True,
                 linewidths=0.01,
@@ -29,4 +29,9 @@ def plot_confusion_matrix(y_true, y_pred, labels):
     plt.xlabel("Predicted Label")
     plt.ylabel("True Label")
     plt.title("Confusion Matrix")
+    if save_figure:
+        plt.savefig('../plots/confusion_matrix.svg',
+                    dpi=figure.dpi,
+                    format='svg',
+                    transparent=True)
     plt.show()
