@@ -1,5 +1,6 @@
 absl-py==0.11.0
 argon2-cffi==20.1.0
+asgiref==3.3.1
 astunparse==1.6.3
 async-generator==1.10
 attrs==20.3.0
@@ -12,6 +13,7 @@ chardet==4.0.0
 cycler==0.10.0
 decorator==4.4.2
 defusedxml==0.6.0
+Django==3.1.6
 entrypoints==0.3
 flatbuffers==1.12
 gast==0.3.3
@@ -21,6 +23,7 @@ google-pasta==0.2.0
 grpcio==1.32.0
 h5py==2.10.0
 idna==2.10
+image==1.5.33
 ipykernel==5.4.2
 ipython==7.19.0
 ipython-genutils==0.2.0
@@ -83,6 +86,7 @@ seaborn==0.11.1
 Send2Trash==1.5.0
 six==1.15.0
 sns==0.1
+sqlparse==0.4.1
 tensorboard==2.4.0
 tensorboard-plugin-wit==1.7.0
 tensorflow==2.4.0
