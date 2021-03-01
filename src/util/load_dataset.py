@@ -2,14 +2,15 @@ import pandas as pd
 from sklearn.preprocessing import LabelBinarizer
 
 
-def load_dataset(path):
+def load_dataset(path, categorize=True):
     data = pd.read_csv(path)
 
     # take only label column
     y = data['label']
-    # categorize / binarize labels
-    label_binarizer = LabelBinarizer()
-    y = label_binarizer.fit_transform(y)
+    if categorize:
+        # categorize / binarize labels
+        label_binarizer = LabelBinarizer()
+        y = label_binarizer.fit_transform(y)
 
     # drop the 'label' column
     x = data.drop(labels='label', axis=1)

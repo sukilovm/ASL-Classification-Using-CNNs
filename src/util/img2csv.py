@@ -41,10 +41,10 @@ def create_csv_from_image_data(path, name):
 
 
 if __name__ == '__main__':
-    create_csv_from_image_data('../../imgs/mariia',
-                               'sign_mnist_test_mariia.csv')
+    create_csv_from_image_data('../../imgs/user_0',
+                               'sign_mnist_test_user_0.csv')
 
-    csv_file = pd.read_csv('../../dataset/sign_mnist_test_mariia.csv')
+    csv_file = pd.read_csv('../../dataset/sign_mnist_test_user_0.csv')
 
     labels = csv_file['label']
     label_binarizer = LabelBinarizer()
